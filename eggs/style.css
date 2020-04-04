@@ -1,9 +1,16 @@
-html,
-body {
+html, body {
     width: 100%;
     height: 100%;
     margin: 0;
     font-family: sans-serif;
+    background: #f12711;
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711); 
+    background: linear-gradient(to right, #f5af19, #f12711);
+
+    font-family: "Roboto", "Open Sans", sans-serif;
+    font-weight: 600;
+    line-height: 1.5;
+    color: whitesmoke;
 }
 
 #container {
@@ -11,22 +18,29 @@ body {
     width: 90%;
     margin-left: 5%;
     position: relative;
-    border: 1px solid red;
+    border: 1px solid rebeccapurple;
     overflow: hidden;
-    background-color: #31b6ce;
+    background-color: #009ad8;
+    margin-top: 30px;
+}
+
+.cloud {
+    height: 18%;
+    width: 100%;
+    
 }
 
 #score_help {
     text-align: center;
     font-size: 25px;
-    background-color: #eaeaea;
+    background-color: green;
 }
 
 #branch {
     position: absolute;
     height: 2%;
     width: 100%;
-    background-color: #7b2e00;
+    background-color: rgb(75, 10, 10);
     top: 23%;
 }
 
@@ -46,11 +60,11 @@ body {
 }
 
 #hen2 {
-    left: 40%;
+    left: 46%;
 }
 
 #hen3 {
-    left: 60%;
+    left: 72.5%;
 }
 
 .egg {
@@ -58,7 +72,7 @@ body {
     top: 18%;
     height: 5%;
     width: 2%;
-    background-color: #fff;
+    background-color: white;
     border-radius: 50%;
     z-index: 99;
 }
@@ -68,11 +82,11 @@ body {
 }
 
 #egg2 {
-    left: calc(40% + 8%/2 - 2%/2);
+    left: calc(46% + 8%/2 - 2%/2);
 }
 
 #egg3 {
-    left: calc(60% + 8%/2 - 2%/2);
+    left: calc(72.5% + 8%/2 - 2%/2);
 }
 
 .bullseye {
@@ -88,22 +102,22 @@ body {
 }
 
 #bullseye1 {
-    left: calc(20% + 8%/2 - 7%/2);
+    left: calc(25% + 8%/2 - 7%/2);
 }
 
 #bullseye2 {
-    left: calc(40% + 8%/2 - 7%/2);
+    left: calc(50% + 8%/2 - 7%/2);
 }
 
 #bullseye3 {
-    left: calc(60% + 8%/2 - 7%/2);
+    left: calc(75% + 8%/2 - 7%/2);
 }
 
 #floor {
     position: absolute;
     height: 7%;
     width: 100%;
-    background-color: #292929;
+    background-color: #262936;
     bottom: 0;
     z-index: 10;
 }
@@ -120,7 +134,7 @@ body {
     z-index: 11;
 }
 
-#score_1 {
+#score1 {
     position: absolute;
     color: #424242;
     font-size: 30px;
@@ -133,10 +147,15 @@ body {
     position: absolute;
     height: 10%;
     width: 100%;
-    background-color: fuchsia;
+    background-color: lightgreen;
     color: white;
     top: 40%;
     font-size: 35px;
     display: none;
     cursor: pointer;
+}
+
+button {
+    background-color: lightseagreen;
+    border: 1px solid blue;
 }
