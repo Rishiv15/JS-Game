@@ -11,16 +11,18 @@ var basket = $('#basket'),
     score1 = $('#score1'),
     life_span = $('#life'),
     floor = $('#floor'),
+    easy = $('#easy');
+    hard = $('#hard');
     basket_height = basket.height(),
     container_height = container.height(),
     egg_height = eggs.height(),
     egg_initial_position = parseInt(eggs.css('top')),
     score = 0,
-    life = 10,
-    speed1 = 1,
-    speed2=1.5,
-    speed3=2,
-
+    life = 8,
+    speed1 = 2,
+    speed2 = 2,
+    speed3 = 2,
+    input = "e",
     max_speed = 15,
     counter = 0,
     score_updated = false,
@@ -30,53 +32,52 @@ var basket = $('#basket'),
     egg_top = 0,
     basket_top = container_height - basket_height,
     bullseye_num = 0;
-    diff  ="hard";
+    diff  ="easy";
     rand = 0;
     color = "white";
 
 life_span.text(life);
 
+$(function () { 
 
+    get_diff();
 
-$(function () {
-
-    
-    game = function () {
+    if(diff === "hard")
+        get_speed();
         
+        game = function () {
         
-
         if (check_egg_hits_floor(egg1) || check_egg_hits_basket(egg1)) {
             rand_color(egg1);
             set_egg_to_initial_position(egg1);
-        } else {
+        } 
+        else {
             egg_down1(egg1);
         }
 
         if (check_egg_hits_floor(egg2) || check_egg_hits_basket(egg2)) {
             rand_color(egg2);
             set_egg_to_initial_position(egg2);
-        } else {
+        } 
+        else {
             setTimeout(function(){
             egg_down2(egg2);
-        }
-        ,500);
-        }
-
-
-
+        }, 500)};
+        
         if (check_egg_hits_floor(egg3) || check_egg_hits_basket(egg3)) {
             rand_color(egg3);
             set_egg_to_initial_position(egg3);
-        } else {
+        } 
+        else {
             setTimeout(function(){
                 egg_down3(egg3);
             },400);
-            
         }
 
         if (life > 0) {
             anim_id = requestAnimationFrame(game);
-        } else {
+        } 
+        else {
             stop_game();
         }
     };
@@ -85,39 +86,53 @@ $(function () {
 
 });
 
+function get_diff(){
+
+    input = prompt("Press 'e' or cancel for easy mode and press 'h' for hard mode. Please read the rules at the bottom of the page as well :)");
+
+    if(input === "e" || input === "E"){
+        diff = "easy";
+        easy.addClass("selected");
+        hard.removeClass("selected");
+    }
+        
+    else if(input === "h" || input === "H"){
+        diff = "hard";
+        life = 7;
+        hard.addClass("selected");
+        easy.removeClass("selected");
+        life_span.text(life);
+    }
+}
+
 $(document).on('mousemove', function (e) {
     basket.css('left', e.pageX);
 });
 
 
-function get_diff(){
-    
-        diff = $("input[name='diff']:checked").val();
-        console.log(diff);
-        console.log("hi");
- 
-    if(diff == "hard")
-        life = 5; 
-
-    requestAnimationFrame(game)
-}
-
 function egg_down1(egg) {
+
     egg1_current_position = parseInt(egg1.css('top'));
     egg1.css('top', egg1_current_position + speed1);
 }
 
 
-
 function egg_down2(egg) {
+
     egg2_current_position = parseInt(egg2.css('top'));
     egg2.css('top', egg2_current_position + speed2);
 }
 
-
 function egg_down3(egg) {
+
     egg3_current_position = parseInt(egg3.css('top'));
     egg3.css('top', egg3_current_position + speed3);
+}
+
+function get_speed(){
+    speed1 = Math.floor(Math.random() * 2 + 2);
+    speed2 = Math.floor(Math.random() * 2 + 2);
+    speed3 = Math.floor(Math.random() * 2 + 2);
 }
 
 function rand_color(egg) {
@@ -134,10 +149,10 @@ function rand_color(egg) {
 
     else if(rand == 7)
         egg.css('background-color', 'black');
-
 }
 
 function check_egg_hits_floor(egg) {
+
     if (collision(egg, floor)) {
         show_bulls_eye(egg);
         decrement_life(egg);
@@ -147,28 +162,33 @@ function check_egg_hits_floor(egg) {
 }
 
 function set_egg_to_initial_position(egg) {
+
     egg.css('top', egg_initial_position);
 }
 
 function show_bulls_eye(egg) {
+
     bullseye_num = egg.attr('data-bullseye');
     $('#bullseye' + bullseye_num).show();
     hide_bulls_eye(bullseye_num);
 }
 
 function hide_bulls_eye(bullseye_num) {
+
     setTimeout(function () {
         $('#bullseye' + bullseye_num).hide();
     }, 800);
 }
 
 function decrement_life(egg) {
+
     if($(egg).css("background-color") != "rgb(255, 0, 0)" && $(egg).css("background-color") != "rgb(0, 0, 0)")
         life--;
     life_span.text(life);
 }
 
 function check_egg_hits_basket(egg) {
+
     if (collision(egg, basket)) {
         egg_top = parseInt(egg.css('top'));
         if (egg_top < basket_top) {
@@ -201,20 +221,24 @@ function update_score(egg) {
         life_span.text(life);
     }
 
-    if (score % 7 === 0 && speed1 <= max_speed && diff == "hard") {
+    if (score % 7 === 0 && speed1 <= max_speed && diff === "hard") {
         speed1++;
     }
-    if (score % 10 === 0 && speed2 <= max_speed && diff == "hard") {
+
+    if (score % 10 === 0 && speed2 <= max_speed && diff === "hard") {
         speed2++;
     }
-    if (score % 11 === 0 && speed3 <= max_speed && diff == "hard") {
+
+    if (score % 11 === 0 && speed3 <= max_speed && diff === "hard") {
         speed3++;
     }
+
     score_span.text(score);
     score1.text(score);
 }
 
 function collision($div1, $div2) {
+
     var x1 = $div1.offset().left;
     var y1 = $div1.offset().top;
     var h1 = $div1.outerHeight(true);
@@ -243,5 +267,4 @@ restart.click(function () {
 
 go.click(function () {
     location.reload();
-
 })

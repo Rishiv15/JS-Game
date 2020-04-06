@@ -13,11 +13,16 @@
     <div id="container">
 
       <div id="score_help"> 
+       
         Score:
         <span id="score">0</span>
          | Life:
         <span id="life"></span>
          | Move basket with your mouse
+
+        <button id="easy" class="selected">EASY</button>
+        <button id="hard">HARD</button> <span class="highscore"> Highscore: 92 </span>
+        
       </div>
 
       <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTM9yIb_SrzCcxgc3oAcOGF5uaAtAdur5nz8wsX4QRWDjsUyd5s&usqp=CAU" class="cloud" alt="">-->
@@ -46,17 +51,6 @@
 
     </div>
 
-    <div style="text-align: center;" >
-      <p>Choose Difficulty:</p> 
-      <label for="e">Easy</label>
-      <button id="hard"     type="submit " >Hard</button>
-      <button id="easy"     type="submit " >Easy</button>
-      <input id="e" name="diff" type="radio" value="easy" >
-      <label for="h">Hard</label>
-      <input id="h" name="diff" type="radio" value="hard">
-      <button id="go"     type="submit " >Go</button>
-    </div>
-
     <p style="text-align: center;">Rules:</p>
     <ol style="margin-left: 300px;">
       <li>Catch the eggs</li>
@@ -65,8 +59,9 @@
       <li>Red eggs decrease your score by 1</li>
       <li>When you miss an egg (except red and black ones), your number of lives wil be reduced by 1</li>
       <li>Black eggs will decrease your score and number of lives by 1</li>
-      <li>In the easy mode, the speed of the falling eggs will remain the same and you will have 6 lives</li>
-      <li>In the difficult mode, the speed of the falling eggs will increase over time and you will have 5 lives</li>
+      <li>In the easy mode, the speed of the falling eggs will remain the same and you will have 8 lives</li>
+      <li>In the difficult mode, the speed of the falling eggs will increase over time and you will have 7 lives</li>
+      <li>The game mode is indicated next to your score</li>
       <li>The game will end when you use up all your lives</li>
     </ol>
 

@@ -24,12 +24,6 @@ html, body {
     margin-top: 30px;
 }
 
-.cloud {
-    height: 18%;
-    width: 100%;
-    
-}
-
 #score_help {
     text-align: center;
     font-size: 25px;
@@ -40,7 +34,6 @@ html, body {
     position: absolute;
     height: 20%;
     width: 100%;
-    
     top: 27%;
     background: url('bark1.png');
     background-size: 1600px 100px;
@@ -78,6 +71,11 @@ html, body {
     background-color: white;
     border-radius: 50%;
     z-index: 99;
+}
+
+#easy {
+    height: 100%;
+    margin-left: 5rem;
 }
 
 #egg1 {
@@ -140,6 +138,10 @@ html, body {
     z-index: 11;
 }
 
+.selected {
+    background-color: gold;
+}
+
 #score1 {
     position: absolute;
     color: #424242;
@@ -155,17 +157,25 @@ html, body {
     width: 100%;
     background-color: lightgreen;
     color: white;
-    top: 40%;
+    top: 50%;
     font-size: 35px; 
     display: none;
     cursor: pointer;
 }
 
 button {
-    background-color: lightseagreen;
-    border: 1px solid rgb(16, 16, 19);
+    background-color: whitesmoke;
+    border: none;
+    height: 100%;
+    font-weight: 550;
+    color: steelblue; 
+    letter-spacing: 1px;
+    transition: all 5.0s;
+    padding: 5px 9px;
+    border-radius: 25%;
+    margin-bottom: 10px;
 }
-button:active {
-  background-color: darkgreen;
-  border:1px darkslategrey;
+
+.highscore {
+    margin-left: 3rem;
 }
