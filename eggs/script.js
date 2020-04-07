@@ -48,26 +48,26 @@ $(function () {
         
         game = function () {
         
-        if (check_egg_hits_floor(egg1) || check_egg_hits_basket(egg1)) {
+        if (egg_hits_floor(egg1) || egg_hits_basket(egg1)) {
             rand_color(egg1);
-            set_egg_to_initial_position(egg1);
+            egg_initial_pos(egg1);
         } 
         else {
             egg_down1(egg1);
         }
 
-        if (check_egg_hits_floor(egg2) || check_egg_hits_basket(egg2)) {
+        if (egg_hits_floor(egg2) || egg_hits_basket(egg2)) {
             rand_color(egg2);
-            set_egg_to_initial_position(egg2);
+            egg_initial_pos(egg2);
         } 
         else {
             setTimeout(function(){
             egg_down2(egg2);
         }, 500)};
         
-        if (check_egg_hits_floor(egg3) || check_egg_hits_basket(egg3)) {
+        if (egg_hits_floor(egg3) || egg_hits_basket(egg3)) {
             rand_color(egg3);
-            set_egg_to_initial_position(egg3);
+            egg_initial_pos(egg3);
         } 
         else {
             setTimeout(function(){
@@ -152,29 +152,29 @@ function rand_color(egg) {
         egg.css('background-color', 'black');
 }
 
-function check_egg_hits_floor(egg) {
+function egg_hits_floor(egg) {
 
     if (collision(egg, floor)) {
-        show_bulls_eye(egg);
+        show_bullseye(egg);
         decrement_life(egg);
         return true;
     }
     return false;
 }
 
-function set_egg_to_initial_position(egg) {
+function egg_initial_pos(egg) {
 
     egg.css('top', egg_initial_position);
 }
 
-function show_bulls_eye(egg) {
+function show_bullseye(egg) {
 
     bullseye_num = egg.attr('data-bullseye');
     $('#bullseye' + bullseye_num).show();
-    hide_bulls_eye(bullseye_num);
+    hide_bullseye(bullseye_num);
 }
 
-function hide_bulls_eye(bullseye_num) {
+function hide_bullseye(bullseye_num) {
 
     setTimeout(function () {
         $('#bullseye' + bullseye_num).hide();
@@ -188,7 +188,7 @@ function decrement_life(egg) {
     life_span.text(life);
 }
 
-function check_egg_hits_basket(egg) {
+function egg_hits_basket(egg) {
 
     if (collision(egg, basket)) {
         egg_top = parseInt(egg.css('top'));
