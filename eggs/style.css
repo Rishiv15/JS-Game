@@ -18,6 +18,13 @@ html, body {
     width: 90%;
     margin-left: 5%;
     position: relative;
+    background-image: url('bg1.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: round;
+    
     border: 1px solid rebeccapurple;
     overflow: hidden;
     background-color: #009ad8;
@@ -28,6 +35,9 @@ html, body {
     text-align: center;
     font-size: 25px;
     background-color: green;
+    color: #f5af19;
+    border: 3px solid palevioletred;
+    
 }
 
 #branch {
@@ -38,6 +48,11 @@ html, body {
     background: url('bark1.png');
     background-size: 1600px 100px;
     background-repeat: no-repeat;
+    margin-left: 250px;
+    padding-left: 50px;
+    padding-right: 200px;
+    
+    
 }
 
 .hen {
@@ -46,7 +61,7 @@ html, body {
     width: 8%;
     top: 10%;
     background: url('hen-right.png');
-    background-size: 100px 150px;
+    background-size: 150px 200px;
     background-repeat: no-repeat;
     z-index: 100;
 }
