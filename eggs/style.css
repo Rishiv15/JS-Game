@@ -13,6 +13,21 @@ html, body {
     color: #126383;
 }
 
+p {
+    text-align: center;
+}
+
+.rules {
+    font-size: 20px;
+    background-color: white;
+    color: steelblue;
+    margin: 30px 67px;
+}
+
+ol{
+    margin-left: 140px;
+}
+
 .h {
     text-align: center;
     color: #126383;
