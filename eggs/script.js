@@ -13,6 +13,7 @@ var basket = $('#basket'),
     floor = $('#floor'),
     easy = $('#easy');
     hard = $('#hard');
+    final_score = $("#disp_score")
     basket_height = basket.height(),
     container_height = container.height(),
     egg_height = eggs.height(),
@@ -258,6 +259,8 @@ function collision($div1, $div2) {
 
 function stop_game() {
     cancelAnimationFrame(anim_id);
+    final_score.slideDown();
+    final_score.text("Score: " + score);
     restart.slideDown();
 }
 
